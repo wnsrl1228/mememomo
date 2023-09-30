@@ -2,4 +2,5 @@
     <string name="app_name">메메모모</string>
     <string name="memo">메모</string>
     <string name="calendar">캘린더</string>
+    <string name="edit">편집</string>
 </resources>

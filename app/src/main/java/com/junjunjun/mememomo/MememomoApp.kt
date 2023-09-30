@@ -45,16 +45,14 @@ fun MememomoApp(navController: NavHostController = rememberNavController()) {
                 .padding(padding)
         ) {
             // TODO : 추후 NavigationRail 추가
-            Column(
-                Modifier
-                    .fillMaxSize()
-                    .padding(padding)) {
+            Column(Modifier.fillMaxSize()) {
                 MememomoTopAppBar(
                     title = "메메모모",
                     actionIcon = Icons.Rounded.MoreVert,
                     actionIconContentDescription = ""
                 )
                 MememomoNavHost(navController = navController)
+
             }
         }
     }
