@@ -5,8 +5,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.junjunjun.mememomo.ui.memo.MemoDestination
 import com.junjunjun.mememomo.ui.memo.MemoScreen
+import com.junjunjun.mememomo.ui.memo.memoRoute
 
 
 @Composable
@@ -16,10 +16,10 @@ fun MememomoNavHost(
 ){
     NavHost(
         navController = navController,
-        startDestination = MemoDestination.route,
+        startDestination = memoRoute,
         modifier = modifier
     ) {
-        composable(route = MemoDestination.route) {
+        composable(route = memoRoute) {
             MemoScreen()
         }
     }

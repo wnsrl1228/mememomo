@@ -29,15 +29,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.junjunjun.mememomo.R
-import com.junjunjun.mememomo.navigation.NavigationDestination
 import com.junjunjun.mememomo.ui.theme.MememomoTheme
 
 
-object MemoDestination : NavigationDestination {
-    override val route = "memo"
-    override val titleRes = R.string.app_name
-}
 
+
+const val memoRoute = "memo_route"
 @Composable
 fun MemoRoute(
     modifier: Modifier = Modifier

@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Mememomo</string>
+    <string name="app_name">메메모모</string>
+    <string name="memo">메모</string>
+    <string name="calendar">캘린더</string>
 </resources>
