@@ -30,6 +30,7 @@ fun MememomoApp(navController: NavHostController = rememberNavController()) {
 
     Scaffold(
         bottomBar = {
+            // TODO : if (showBottomBar) 로 추후 상태를 통해 bottomBar 보여줌 여부를 결정
             MemoBottomBar(
                 destinations = TopLevelDestination.values().asList(),
 //                destinationsWithUnreadResources = unreadDestinations,
