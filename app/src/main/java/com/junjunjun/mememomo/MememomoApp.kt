@@ -15,8 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.junjunjun.mememomo.component.MememomoTopAppBar
 import com.junjunjun.mememomo.component.MemoNavigationBar
 import com.junjunjun.mememomo.component.MemoNavigationBarItem
@@ -25,19 +23,23 @@ import com.junjunjun.mememomo.navigation.TopLevelDestination
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MememomoApp(navController: NavHostController = rememberNavController()) {
+fun MememomoApp(
+    appState: MemoAppState = rememberMemoAppState()
+) {
     // TODO : 이 곳에서 배경, topbar, 테마, 초기 상태를 설정함
 
     Scaffold(
         bottomBar = {
-            // TODO : if (showBottomBar) 로 추후 상태를 통해 bottomBar 보여줌 여부를 결정
-            MemoBottomBar(
-                destinations = TopLevelDestination.values().asList(),
-//                destinationsWithUnreadResources = unreadDestinations,
-                onNavigateToDestination = {}, // TODO : 목적지 이동 로직 추후 구현
-                currentDestination = NavDestination(""),
-                modifier = Modifier,
-            )
+            // Show the bottom app bar on top level destinations.
+            val destination = appState.currentTopLevelDestination
+            if (destination != null) {
+                MemoBottomBar(
+                    destinations = TopLevelDestination.values().asList(),
+                    onNavigateToDestination = {}, // TODO : 목적지 이동 로직 추후 구현
+                    currentDestination = NavDestination(""),
+                    modifier = Modifier,
+                )
+            }
         }
     ) { padding ->
         Row(
@@ -52,8 +54,7 @@ fun MememomoApp(navController: NavHostController = rememberNavController()) {
                     actionIcon = Icons.Rounded.MoreVert,
                     actionIconContentDescription = ""
                 )
-                MememomoNavHost(navController = navController)
-
+                MememomoNavHost(appState = appState)
             }
         }
     }

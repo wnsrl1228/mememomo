@@ -67,8 +67,7 @@ fun AddEditBody(
         /**
          * TODO : 1. 제목 글자수 제한 경고 문구
          *        2. 글자가 자판에 가리는 문제 해결
-         *           - 일정 높이에서 더이상 자판이 아래로 안 내려가도록
-         *           - 자판 아래 터치시 자동으로 자판 아래만큼의 빈 너비 추가
+         *           -
          *        3. 스크롤바 구현
          */
         TextField(
@@ -91,7 +90,8 @@ fun AddEditBody(
             value = content,
             onValueChange = {content = it},
             placeholder = { Text("내용을 입력하세요", color = Color.LightGray)},
-            modifier = modifier.fillMaxSize()
+            modifier = modifier
+                .fillMaxSize()
                 .focusRequester(focusRequester)
             ,
             colors = TextFieldDefaults.textFieldColors(
@@ -101,6 +101,7 @@ fun AddEditBody(
             )
         )
     }
+
 
 }
 
